@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyKhachSan.All_User_Control
+namespace PresentationLayer.All_User_Control
 {
     public partial class UC_CheckOut: UserControl
     {

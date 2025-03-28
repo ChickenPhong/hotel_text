@@ -1,4 +1,4 @@
-﻿namespace QuanLyKhachSan
+﻿namespace PresentationLayer
 {
     partial class Form1
     {

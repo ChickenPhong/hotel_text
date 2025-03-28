@@ -11,7 +11,7 @@ using System.Collections;
 using BusinessLayer;
 using TransferObject;
 
-namespace QuanLyKhachSan.All_User_Control
+namespace PresentationLayer.All_User_Control
 {
     public partial class UC_AddRoom: UserControl
     {

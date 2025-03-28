@@ -8,29 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using BusinessLayer;
 
-namespace QuanLyKhachSan.All_User_Control
+namespace PresentationLayer.All_User_Control
 {
     public partial class UC_CustomerRes: UserControl
     {
-        function fn = new function();
-        String query;
+        CustomerService customerService = new CustomerService();
         public UC_CustomerRes()
         {
             InitializeComponent();
-        }
-
-        public void setComboBox(String query, ComboBox combo)
-        {
-            SqlDataReader sdr = fn.getForCombo(query);
-            while (sdr.Read())
-            {
-                for (int i = 0; i < sdr.FieldCount; i++)
-                {
-                    combo.Items.Add(sdr.GetString(i));
-                }    
-            }
-            sdr.Close();
         }
 
         private void UC_CustomerRes_Load(object sender, EventArgs e)
@@ -48,17 +35,20 @@ namespace QuanLyKhachSan.All_User_Control
         private void txtRoom_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtRoomNo.Items.Clear();
-            query = "select roomNo from rooms where bed = '" + txtBed.Text + "' and roomType = '" + txtRoom.Text + "' and booked = 'NO'";
-            setComboBox(query, txtRoomNo);
+
+            DataTable rooms = customerService.GetAvailableRooms(txtBed.Text, txtRoom.Text);
+            foreach (DataRow row in rooms.Rows)
+            {
+                txtRoomNo.Items.Add(row["roomNo"].ToString());
+            }
         }
 
         int rid;
         private void txtRoomNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            query = "select price, roomid from rooms where roomNo = '" + txtRoomNo.Text + "'";
-            DataSet ds = fn.getData(query);
-            txtPrice.Text = ds.Tables[0].Rows[0][0].ToString();
-            rid = int.Parse(ds.Tables[0].Rows[0][1].ToString());
+            var (price, roomId) = customerService.GetRoomInfo(txtRoomNo.Text);
+            txtPrice.Text = price.ToString();
+            rid = roomId;
         }
 
         private void btnAllotCustomer_Click(object sender, EventArgs e)
@@ -74,9 +64,7 @@ namespace QuanLyKhachSan.All_User_Control
                 String address = txtAddress.Text;
                 String checkin = txtCheckin.Text;
 
-                query = "insert into customer (cname, mobile, nationality, gender, dob, idproof, address, checkin, roomid) values ('" + name + "'," + mobile + ",'" + national + "','" + gender + "','" + dob + "','" + idproof + "','" + address + "','" + checkin + "'," + rid + ") update rooms set booked = 'YES' where roomNo = '" + txtRoomNo.Text + "'";
-                fn.setData(query, "Số Phòng " + txtRoomNo.Text + " Đăng ký khách hàng thành công.");
-                clearAll();
+                customerService.AllotCustomer(name, mobile, national, gender, dob, idproof, address, checkin, rid, txtRoomNo.Text);
             } else
             {
                 MessageBox.Show("Vui lòng nhập lại đầy đủ thông tin.", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);

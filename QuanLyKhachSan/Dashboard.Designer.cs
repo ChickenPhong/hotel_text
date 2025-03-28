@@ -1,4 +1,4 @@
-﻿namespace QuanLyKhachSan
+﻿namespace PresentationLayer
 {
     partial class Dashboard
     {
@@ -41,15 +41,15 @@
             this.btnCustomerRes = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddRoom = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.uC_CheckOut1 = new QuanLyKhachSan.All_User_Control.UC_CheckOut();
-            this.uC_CustomerRes1 = new QuanLyKhachSan.All_User_Control.UC_CustomerRes();
-            this.uC_AddRoom1 = new QuanLyKhachSan.All_User_Control.UC_AddRoom();
+            this.uC_CheckOut1 = new PresentationLayer.All_User_Control.UC_CheckOut();
+            this.uC_CustomerRes1 = PresentationLayer.All_User_Control.UC_CustomerRes();
+            this.uC_AddRoom1 = new PresentationLayer.All_User_Control.UC_AddRoom();
             this.PanelMoving = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Elipse4 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.uC_CustomerDetails1 = new QuanLyKhachSan.All_User_Control.UC_CustomerDetails();
+            this.uC_CustomerDetails1 = new PresentationLayer.All_User_Control.UC_CustomerDetails();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
