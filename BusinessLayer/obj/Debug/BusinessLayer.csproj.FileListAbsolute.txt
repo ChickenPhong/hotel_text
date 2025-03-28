@@ -1,0 +1,11 @@
+D:\HotelManagement\HotelManagement\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\HotelManagement\HotelManagement\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\HotelManagement\HotelManagement\BusinessLayer\bin\Debug\DataLayer.dll
+D:\HotelManagement\HotelManagement\BusinessLayer\bin\Debug\TransferObject.dll
+D:\HotelManagement\HotelManagement\BusinessLayer\bin\Debug\DataLayer.pdb
+D:\HotelManagement\HotelManagement\BusinessLayer\bin\Debug\TransferObject.pdb
+D:\HotelManagement\HotelManagement\BusinessLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
+D:\HotelManagement\HotelManagement\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\HotelManagement\HotelManagement\BusinessLayer\obj\Debug\Business.EA331CBA.Up2Date
+D:\HotelManagement\HotelManagement\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\HotelManagement\HotelManagement\BusinessLayer\obj\Debug\BusinessLayer.pdb
